@@ -23,6 +23,6 @@ public class Parallax : MonoBehaviour
         if (_imagePositionY > 1)
             _imagePositionY = 0;
 
-        _image.uvRect = new Rect(0, _imagePositionY, _image.uvRect.width, _image.uvRect.height);
+        _image.uvRect = new Rect(_image.uvRect.x, _imagePositionY, _image.uvRect.width, _image.uvRect.height);
     }
 }
