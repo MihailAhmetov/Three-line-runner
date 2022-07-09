@@ -30,19 +30,28 @@ public class GameOverScreen : MonoBehaviour
     private void Start()
     {
         _gameOverGroup = GetComponent<CanvasGroup>();
+        ActivateButtons(false);
         _gameOverGroup.alpha = 0;
     }
 
     private void OnDied()
     {
         _gameOverGroup.alpha = 1;
+        ActivateButtons(true);
         Time.timeScale = 0;
     }
 
     private void OnRestartButtonClick()
     {
         SceneManager.LoadScene(0);
+        ActivateButtons(false);
         Time.timeScale = 1;
+    }
+
+    private void ActivateButtons(bool value)
+    {
+        _exitButton.interactable = value;
+        _restartButton.interactable = value;
     }
 
     private void OnExitButtonClick()
